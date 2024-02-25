@@ -2,10 +2,15 @@
  
 import smtplib
 from random import choice
+from dotenv import load_dotenv
+import os
+
+# Load the environment file.
+load_dotenv()
 
 # Constants.
 FROM_EMAIL = 'bhar.debaditya@gmail.com'
-APP_PASS = 'deirownkmvdgxnxy'
+APP_PASS = os.getenv('APP_PASS_CODE')
 TO_EMAIL = 'debadityabhar@icloud.com'
 MAIL_HOST = 'smtp.gmail.com'
 MAIL_PORT = 587

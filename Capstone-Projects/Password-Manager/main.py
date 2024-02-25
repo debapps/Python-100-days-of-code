@@ -5,7 +5,7 @@ import json
 
 # Constants.
 FONT = ('Arial', 16, 'normal')
-PASSWORD_FILE = 'data.json'
+PASSWORD_FILE = './data/password.json'
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 

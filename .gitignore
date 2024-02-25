@@ -1,6 +1,11 @@
 # OS Compatible Files
 .DS_Store
 
+# Application secret files.
+password.json
+password*
+secret*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
