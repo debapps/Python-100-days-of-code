@@ -25,7 +25,6 @@ APP_PASS = os.getenv('APP_PASS_CODE')
 TO_EMAIL = 'debadityabhar@icloud.com'
 MAIL_HOST = 'smtp.gmail.com'
 MAIL_PORT = 587
-QUOTE_FILE = 'quotes.txt'
 
 
 def call_api(url, params = {}):
@@ -78,13 +77,9 @@ def get_ISS_pos():
     return iss_position
 
 def check_ISS_above_you():
-    iss_pos = get_ISS_pos()
+    (iss_long, iss_lat) = get_ISS_pos()
 
-    if (
-        iss_pos[0] >= MY_LONG - 5 and iss_pos[0] <= MY_LONG + 5
-        ) or (
-        iss_pos[1] >= MY_LAT - 5 and iss_pos[1] <= MY_LAT + 5    
-        ):
+    if MY_LONG + 5 >= iss_long >= MY_LONG - 5 and MY_LAT + 5 >= iss_lat >= MY_LAT - 5:
         return True
     else:
         return False 
