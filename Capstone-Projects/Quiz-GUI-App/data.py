@@ -5,6 +5,7 @@ URL = 'https://opentdb.com/api.php'
 PARAMS = {
     'amount': 10,
     'type': 'boolean',
+    'category': 17,
 }
 
 def call_api(url, params = {}):
