@@ -76,7 +76,7 @@ def format_news_content(news_data, per_change):
     company_news = []
     
     for news in news_data: 
-        template_message = f'{STOCK} {change_symbol} {abs(per_change)}\nHeadline: {news['title']}\nBrief: {news['description']}'
+        template_message = f'{STOCK} {change_symbol} {abs(per_change)}%\nHeadline: {news['title']}\nBrief: {news['description']}'
         company_news.append(template_message)
 
     return company_news
@@ -124,6 +124,6 @@ if abs(percentage_change) > 5:
         sleep(10)
         send_sms(TO_PHN_NUM, news)
 else: 
-    print(f'\nThe percentage change for {STOCK}: {percentage_change}')
+    print(f'\nThe percentage change for {STOCK}: {percentage_change}%')
 
 
