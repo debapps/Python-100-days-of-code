@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 import requests
 from twilio.rest import Client
+from time import sleep
 
 # STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday 
@@ -49,6 +50,7 @@ def get_news(comapny):
 
     NEWS_API_PARAMS = {
         'q': comapny,
+        'searchIn': 'title',
         'sortBy': 'relevancy',
         'pageSize': 3,
         'language': 'en',
@@ -91,7 +93,7 @@ def send_sms(to_number, msg):
         to=to_number
     )
 
-    print(f'SMS is {message.status}')
+    print(f'\nSMS is {message.status}')
     print('Messege Send - ')
     print(msg)
 
@@ -119,6 +121,9 @@ if abs(percentage_change) > 5:
 
     # For all the related company news, send the SMS.
     for news in company_news:
+        sleep(10)
         send_sms(TO_PHN_NUM, news)
+else: 
+    print(f'\nThe percentage change for {STOCK}: {percentage_change}')
 
 
