@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: whitesmoke;
+}
+
+.motivational-card {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.motivational-card-image {
+    width: 100%;
+    border: 5px solid white;
+}
+
+.motivational-card-heading {
+    font-family: "Libre Baskerville", serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding: 20px;
+}
+
+.motivational-card-text {
+    font-family: "Libre Baskerville", serif;
+    font-size: 1rem;
+    padding: 10px;
+}

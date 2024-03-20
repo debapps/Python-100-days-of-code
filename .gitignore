@@ -169,3 +169,6 @@ cython_debug/
 
 # Virtual Environments.
 package*
+
+#VSCode related files
+.vscode
