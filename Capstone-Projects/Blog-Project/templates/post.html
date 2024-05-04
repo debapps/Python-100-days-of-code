@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>FizzBuzz Blog.</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="../static/css/styles.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="top">
+                <div class="title"><h1>FizzBuzz Blog.</h1></div>
+                <a href="/">Back</a>
+            </div>
+            <div class="content">
+                <div class="card">
+                    <h2>{{ blog['title'] }}</h2>
+                    <h4>{{ blog['subtitle'] }}</h4>
+                    <p class="text">{{ blog['body'] }}</p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>Made with ♥️ by DebaMckv.</p>
+        </footer>
+    </body>
+</html>
