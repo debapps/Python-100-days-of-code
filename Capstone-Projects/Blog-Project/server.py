@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 from post import Post
+from send_email import Email
 
 # Constants
 BLOG_URL = 'https://api.npoint.io/6c785bf63668cabee2e2'
@@ -30,9 +31,27 @@ def home():
 def about():
     return render_template("about.html")
 
-@app.route("/contact")
+# This method gets the data from contact form.
+def recieve_contact_data():
+    name = request.form['name']
+    email = request.form['email']
+    phone = request.form['phone']
+    message = request.form['message']
+    
+    email_subject = 'FizzBuzz Blog. : Someone Contacted You.'
+    email_message = f'Name: {name}\nEmail: {email}\nPhone: {phone}\n\nMessage:\n{message}'
+
+    email = Email(email_subject, email_message)
+    email.send_email()
+
+    return render_template("contact.html", heading = 'Successfully sent your message.')
+
+@app.route("/contact", methods=['GET', 'POST'])
 def contact():
-    return render_template("contact.html")
+    if request.method == 'POST':
+        return recieve_contact_data()
+    else:
+        return render_template("contact.html")
 
 @app.route("/blog/<int:postid>")
 def blog(postid):
@@ -47,6 +66,8 @@ def blog(postid):
             break
     
     return render_template("post.html", post = blog)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
